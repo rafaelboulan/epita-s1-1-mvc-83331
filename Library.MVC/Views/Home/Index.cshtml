@@ -1,8 +1,58 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Library Management System";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="jumbotron mt-5">
+    <h1 class="display-4">Welcome to Library Management System</h1>
+    <p class="lead">Manage books, members, and loans for your community library</p>
+    <hr class="my-4">
+</div>
+
+<div class="row mt-4">
+    <div class="col-md-3">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">📚 Books</h5>
+                <p class="card-text">Browse, search, and manage library books</p>
+                <a href="@Url.Action("Index", "Books")" class="btn btn-primary">Manage Books</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">👥 Members</h5>
+                <p class="card-text">Manage library members and their information</p>
+                <a href="@Url.Action("Index", "Members")" class="btn btn-primary">Manage Members</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">📋 Loans</h5>
+                <p class="card-text">Track book loans and returns</p>
+                <a href="@Url.Action("Index", "Loans")" class="btn btn-primary">Manage Loans</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">⚙️ Admin</h5>
+                <p class="card-text">Manage user roles (Admin only)</p>
+                <a href="@Url.Action("Roles", "Admin")" class="btn btn-warning">Role Management</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-5">
+    <div class="col-md-12">
+        <h3>Quick Stats</h3>
+        <p>View the dashboard to see an overview of your library's operations.</p>
+    </div>
 </div>

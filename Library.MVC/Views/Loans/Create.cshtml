@@ -1,0 +1,32 @@
+@model Library.Domain.Loan
+
+@{
+    ViewData["Title"] = "Create Loan";
+}
+
+<h1>Create New Loan</h1>
+
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
+            <div class="form-group">
+                <label asp-for="MemberId" class="control-label">Select Member</label>
+                <select asp-for="MemberId" class="form-select" asp-items="ViewData["MemberId"] as SelectList"></select>
+                <span asp-validation-for="MemberId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BookId" class="control-label">Select Available Book</label>
+                <select asp-for="BookId" class="form-select" asp-items="ViewData["BookId"] as SelectList"></select>
+                <span asp-validation-for="BookId" class="text-danger"></span>
+            </div>
+            <div class="alert alert-info">
+                <p><strong>Note:</strong> Loan date is set to today. Due date will be 14 days from today.</p>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Create Loan</button>
+                <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+            </div>
+        </form>
+    </div>
+</div>

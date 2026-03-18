@@ -1,5 +1,5 @@
 <Solution>
-  <Project Path="Library.Domain/Library.Domain.csproj" />
-  <Project Path="Library.MVC/Library.MVC.csproj" />
-  <Project Path="Library.Tests/Library.Tests.csproj" />
+  <Project Path="../../../Downloads/epita-s1-1-mvc-20260303-view-models/Library.Domain/Library.Domain.csproj" />
+  <Project Path="../../../Downloads/epita-s1-1-mvc-20260303-view-models/Library.MVC/Library.MVC.csproj" />
+  <Project Path="../../../Downloads/epita-s1-1-mvc-20260303-view-models/Library.Tests/Library.Tests.csproj" />
 </Solution>

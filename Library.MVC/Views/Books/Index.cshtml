@@ -1,0 +1,79 @@
+@model BookIndexViewModel
+
+@{
+    ViewData["Title"] = "Books";
+}
+
+<h1>Books</h1>
+
+<div class="card">
+    <div class="card-body">
+        <form method="get" class="row g-3">
+            <div class="col-md-3">
+                <input type="text" name="searchTerm" class="form-control" placeholder="Search Title or Author" value="@Model.SearchTerm">
+            </div>
+            <div class="col-md-3">
+                <select name="category" class="form-select">
+                    <option value="">All Categories</option>
+                    @foreach (var cat in Model.Categories)
+                    {
+                        <option value="@cat" selected="@(Model.SelectedCategory == cat)">@cat</option>
+                    }
+                </select>
+            </div>
+            <div class="col-md-3">
+                <select name="availability" class="form-select">
+                    <option value="All" selected="@(Model.SelectedAvailability == "All")">All</option>
+                    <option value="Available" selected="@(Model.SelectedAvailability == "Available")">Available</option>
+                    <option value="OnLoan" selected="@(Model.SelectedAvailability == "OnLoan")">On Loan</option>
+                </select>
+            </div>
+            <div class="col-md-2">
+                <button type="submit" class="btn btn-primary">Search</button>
+                <a href="@Url.Action("Index")" class="btn btn-secondary">Reset</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<br />
+
+<a asp-action="Create" class="btn btn-success">Create New Book</a>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>ISBN</th>
+            <th>Category</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Books)
+        {
+            <tr>
+                <td>@item.Title</td>
+                <td>@item.Author</td>
+                <td>@item.Isbn</td>
+                <td>@item.Category</td>
+                <td>
+                    @if (item.IsAvailable)
+                    {
+                        <span class="badge bg-success">Available</span>
+                    }
+                    else
+                    {
+                        <span class="badge bg-warning">On Loan</span>
+                    }
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-warning">Edit</a>
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
